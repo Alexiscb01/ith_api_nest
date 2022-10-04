@@ -1,5 +1,5 @@
 import { userModel } from './../../Models/user.model';
-import { Body, Get, Controller, Post, Param } from '@nestjs/common';
+import { Body, Get, Controller, Post, Param, Put } from '@nestjs/common';
 import { UserService } from './user.service';
 import { get } from 'http';
 
@@ -25,6 +25,11 @@ export class UserController {
         const user = this.userService.getByEmail(params)
         return user ?? "El usuario no existe"
      }
+
+     @Put('/update/:id')
+    updateUser (@Body() user:userModel, @Param('id') id ){
+        return this.userService.updateUserbyID(Number(id),user)
+    }
 }
 //crear nueva rama -> git checkout -b *nombre de la rama*
 //git add . && git commit -m *comentario*
