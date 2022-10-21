@@ -1,4 +1,4 @@
-import { userModel } from './../../Models/user.model';
+import { userModel } from '../../../Models/user.model';
 import { Body, Get, Controller, Post, Param, Put } from '@nestjs/common';
 import { UserService } from './user.service';
 import { get } from 'http';
@@ -9,8 +9,13 @@ export class UserController {
         
     }
     @Post()
-    create(@Body() params: userModel):void{
-        this.userService.create(params)
+    create(@Body() params: userModel):string|boolean{
+        try {
+            this.userService.create(params)
+            return true
+        } catch (error) {
+            console.log({error})
+        }
         /*console.log("Nombre es: " + params.name, "\nCorreo es: " + params.email, "n\Telefono es: " + params.cellphone)*/
 
     }
