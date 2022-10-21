@@ -6,13 +6,13 @@ export class User{
     id : number;
 
     @Column()
-    Nombre : string
+    name : string
 
     @Column()
-    Correo : string
+    email : string
 
     @Column({ default : null})
-    Telefono? : string    
+    cellphone? : string    
 
 
 }

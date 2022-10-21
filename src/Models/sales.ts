@@ -1,10 +1,6 @@
-export interface ISales{
-    id_user : number
-    details : IDetails[]
-}
+import { IDetails } from "./details";
 
-export interface IDetails{
-    product : string
-    quantity : number
-    unit_price : number
+export interface ISales{
+    id_user: number;
+    details: IDetails[];
 }
